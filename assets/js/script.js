@@ -74,13 +74,13 @@ generateBtn.addEventListener("click", writePassword);
 
 // Start Function
 function generatePassword() {
-  // Ask four user Input
+  // prompt for password length 
   passwordLength = prompt(
     "How many characters would you like your password? Choose between 8 and 128"
   );
   //prompt for what they want
   if (passwordLength < 8 || passwordLength > 128) {
-    passwordLength = prompt("You must choose between 8 and 128");
+    passwordLength = prompt("That wasn't a choice???");
   } else {
     confirmLower = confirm("Include lower case letters?");
     confirmUpper = confirm("Include upper case letters?");
