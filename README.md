@@ -1,2 +1,0 @@
-# Practice
-Yolo? Yolo swag?
