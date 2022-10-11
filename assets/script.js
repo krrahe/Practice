@@ -1,3 +1,4 @@
+//using API on the html to set vars
 var buttonA = document.getElementById("a");
 var buttonB = document.getElementById("b");
 var buttonC = document.getElementById("c");
@@ -19,7 +20,7 @@ var submitScoreBtn = document.getElementById("submitScore");
 var highscoreDisplayScore = document.getElementById("highscore-score");
 
 
-// Quiz question object
+// Questions themselves 
 var quizQuestions = [{
     question: "What is an API?",
     choiceA: "Application Programming Ideology",
@@ -70,7 +71,7 @@ var timerInterval;
 var score = 0;
 var correct;
 
-// This function cycles through the object array containing the quiz questions to generate the questions and answers.
+// cycles through the questions 
 function generateQuizQuestion() {
     gameoverDiv.style.display = "none";
     if (currentQuestionIndex === finalQuestionIndex) {
