@@ -37,7 +37,7 @@
 // ];
 // // Var To Upper Case
 // var blackUpper = [];
-// var toUpper = function (x) {    
+// var toUpper = function (x) {
 //   return x.toUpperCase();
 // };
 // upperCase = lowerCase.map(toUpper);
@@ -74,7 +74,7 @@
 
 // // Start Function
 // function generatePassword() {
-//   // prompt for password length 
+//   // prompt for password length
 //   passwordLength = prompt(
 //     "How many characters would you like your password? Choose between 8 and 128"
 //   );
@@ -144,53 +144,100 @@
 //   return password;
 // }
 
-var shoppingFormEl=$('#shopping-form');
-var shoppingListEl=$('#shopping-list');
+// var shoppingFormEl=$('#shopping-form');
+// var shoppingListEl=$('#shopping-list');
 
-function handleFormSubmit(event){
+// function handleFormSubmit(event){
+//   event.preventDefault();
+//   var shoppingItem=$('input[name="shopping-input"').val();
+//   if(!shoppingItem){
+//     console.log('No shopping item filled out in form!');
+//     return;
+//   }
+//   var shoppingListItemEl=$('<li class-"flex-row justify-space-between align center p-2 bg-light text-dark>'
+//   );
+//   shoppingFormEl.text(shoppingItem);
+//   shoppingListItemEl.append('<button class="btn btn-danger btn-small delete-item-btn">remove</button>'
+//   );
+//   var clearPlz =$('.btn btn-danger btn-small delete-item-btn')
+//   shoppingListEl.append(shoppingListItemEl);
+//   $('input[name="shopping-input"]').val('');
+// }
+// var button =$('.btn btn-danger btn-small delete-item-btn')
+
+// var rootEl=$('#root');
+// var title = $('#text-center');
+// $(ul).children().css('background-color','white')
+// $(title).children().css('background-color','black')
+
+// var wins=0;
+// var ties=0;
+// var losses=0;
+// var options =["r","p","s"];
+
+// var playGame= function(){
+//   var userChoice=window.prompt("pick one loser");
+//   if (!userChoice){
+//     return;
+//   }
+//   userChoice=userChoice.toUpperCase();
+//   var index=Math.floor(Math.random()*options.length);
+//   var computerChoice=options[index];
+//   window.alert ('the computer gone git u'+ computerChoice);
+//   if (userChoice === computerChoice){
+//     ties++;
+//     window.alert("git good scrub");
+//   } else if (
+//     (userChoice=fdjk)
+//   );
+// }
+
+// var wordBlank = document.querySelector(".word-blanks");
+// var win = document.querySelector(".win")
+
+var formEl = $("#guestbook-form");
+var nameInputEl = $("#name-input");
+var commentInputEl = $("#comment-input");
+
+var guestBookDisplayEl = $("#guest-book-display");
+
+var printGuestData = function (name, comment) {
+  var cardColumnEl = $("<div>");
+  cardColumnEl.addClass("col-12 cold-sm-4 col-md-3");
+
+  var cardEl = $("<div>");
+  cardColumnEl.addClass("card h-100");
+  cardEl.appendTo(cardColumnEl);
+
+  var cardName = $("<h5>")
+    .addClass("card-header custom-card-header")
+    .text(name);
+  cardName.appendTo(cardEl);
+
+  var cardBodyEl = $("<div>");
+  cardBodyEl.addClass("card-body");
+  cardBodyEl.appendTo(cardEl);
+
+  var cardComment = $("<p>").addClass("card-text").text(comment);
+  cardComment.appendTo(cardBodyEl);
+  guestBookDisplayEl.appendTo(cardColumnEl);
+};
+
+var handleFormSubmit=function(event){
   event.preventDefault();
-  var shoppingItem=$('input[name="shopping-input"').val();
-  if(!shoppingItem){
-    console.log('No shopping item filled out in form!');
+
+  var nameInput =nameInputEl.val();
+  var commentInput = commentInputEl.val();
+
+  if (!nameInput || commentInput){
+    console.log('really???');
     return;
   }
-  var shoppingListItemEl=$('<li class-"flex-row justify-space-between align center p-2 bg-light text-dark>'
-  );
-  shoppingFormEl.text(shoppingItem);
-  shoppingListItemEl.append('<button class="btn btn-danger btn-small delete-item-btn">remove</button>'
-  );
-  var clearPlz =$('.btn btn-danger btn-small delete-item-btn')
-  shoppingListEl.append(shoppingListItemEl);
-  $('input[name="shopping-input"]').val('');
-}
-var button =$('.btn btn-danger btn-small delete-item-btn')
 
+  printGuestData(nameInput, commentInput);
 
-var rootEl=$('#root');
-var title = $('#text-center');
-$(ul).children().css('background-color','white')
-$(title).children().css('background-color','black')
+  nameInputEl.val('');
+  commentInputEl.val('');
+};
 
-
-
-var wins=0;
-var ties=0;
-var losses=0;
-var options =["r","p","s"];
-
-var playGame= function(){
-  var userChoice=window.prompt("pick one loser");
-  if (!userChoice){
-    return;
-  }
-  userChoice=userChoice.toUpperCase();
-  var index=Math.floor(Math.random()*options.length);
-  var computerChoice=options[index];
-  window.alert ('the computer gone git u'+ computerChoice);
-  if (userChoice === computerChoice){
-    ties++;
-    window.alert("git good scrub");
-  } else if (
-    (userChoice=fdjk)
-  );
-}
+formEl.on('submit',handleFormSubmit);
